@@ -1,12 +1,8 @@
-// TODO: Include packages needed for this application ✅
-// const fs = require('fs');
 const inquirer = require('inquirer');
-const renderLicenseSection = require('./Develop/utils/generateMarkdown')
-//require the generate markdown folder to write rules to get the license ✅
+const renderLicenseSection = require('./Utilities/generateMarkdown')
 
 const { writeFile } = require('fs').promises;
 
-// TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer.prompt([
         {
@@ -30,9 +26,9 @@ const questions = () => {
             message: 'Please describe your projects usage.',
         }, 
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
-            choices: ["MIT", "Apache", "ISC"],
+            choices: ["MIT", "Apache", "ISC", "None",],
             message: 'Please select your license.',
         }, 
         {
@@ -48,7 +44,6 @@ const questions = () => {
     ]);
 };
 
-// TODO: Create a function to write README file
 const writeToFile = ({ title, description, instillation, usage, license, contributers, tests}) => 
 `# Title
 
@@ -77,9 +72,7 @@ ${usage}
 
 ${contributers}
 
-## License
-
-${license}
+${renderLicenseSection(license)}
 
 ## Tests
 
@@ -87,7 +80,6 @@ ${tests}
 
 ## Questions`
 
-// TODO: Create a function to initialize app
 const init = () => {
     questions()
     .then((answers) => writeFile('BonusREADME.md', writeToFile(answers)))
@@ -95,5 +87,4 @@ const init = () => {
     .catch((err) => console.error(err));
  }
 
-// Function call to initialize app
 init();

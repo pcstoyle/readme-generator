@@ -1,3 +1,5 @@
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let licenseType = license.license; 
   let yourLicense = ''
@@ -13,6 +15,8 @@ function renderLicenseBadge(license) {
   return yourLicense;
 };
 
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
 function renderLicenseLink(license) {
   let licenseType = license;
   let licenseLink = ''

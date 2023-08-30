@@ -1,16 +1,16 @@
 function renderLicenseBadge(license) {
-  let licenseType = license;
-  let licenseBadge = ''
-  if (licenseType === 'MIT') {
-    licenseBadge = `![License: MIT](https://img.shields.io/badge/license-mit-green.svg)`
+  let licenseType = license.license; 
+  let yourLicense = ''
+  if(licenseType === 'MIT') {
+    yourLicense = `![License: MIT](https://https://img.shields.io/badge/license-mit-green.svg)`
   } else if (licenseType === 'Apache') {
-    licenseBadge = `![License: Appache](https://img.shields.io/github/license/saltstack/salt)`
+    yourLicense = `![License: Appache](https://ihttps://img.shields.io/github/license/saltstack/salt)`
   } else if (licenseType === 'ISC') {
-    licenseBadge = `![License: ISC](https://img.shields.io/pypi/l/xpanse)`
+    yourLicense = `![ISC](https://img.shields.io/pypi/l/xpanse)`
   } else {
-    license.license = ''
+    license.license = " "
   }
-  return licenseBadge;
+  return yourLicense;
 };
 
 function renderLicenseLink(license) {
@@ -28,18 +28,18 @@ function renderLicenseLink(license) {
   return licenseLink;
 };
 
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
 function renderLicenseSection(license) {
-  console.log(license);
-  if(license != "None"){
 
-    return `## License 
-${license}\n
-${renderLicenseBadge(license)}\n
-${renderLicenseLink(license)}`
-  }
+}
 
-  return ""
-};
+// TODO: Create a function to generate markdown for README
+function generateMarkdown(data) {
+  return `# ${data.title}
 
+`;
+}
 
-module.exports = renderLicenseSection;
+module.exports = generateMarkdown;

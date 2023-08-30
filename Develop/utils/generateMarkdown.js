@@ -1,37 +1,52 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let licenseType = license.license; 
-  let yourLicense = ''
-  if(licenseType === 'MIT') {
-    yourLicense = `![License: MIT](https://https://img.shields.io/badge/license-mit-green.svg)`
+  let licenseType = license;
+  let licenseBadge = ''
+  if (licenseType === 'MIT') {
+    licenseBadge = `![License: MIT](https://img.shields.io/badge/license-mit-green.svg)`
   } else if (licenseType === 'Apache') {
-    yourLicense = `![License: Appache](https://ihttps://img.shields.io/github/license/saltstack/salt)`
+    licenseBadge = `![License: Appache](https://img.shields.io/github/license/saltstack/salt)`
   } else if (licenseType === 'ISC') {
-    yourLicense = `![ISC](https://img.shields.io/pypi/l/xpanse)`
+    licenseBadge = `![License: ISC](https://img.shields.io/pypi/l/xpanse)`
   } else {
-    license.license = " "
+    license.license = ''
   }
-  return yourLicense;
+  return licenseBadge;
 };
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  let licenseType = license;
+  let licenseLink = ''
+  if (licenseType === 'MIT') {
+    licenseLink = `[License: MIT](https://www.mit.edu/~amini/LICENSE.md)`
+  } else if (licenseType === 'Apache') {
+    licenseLink = `[License: Appache](https://www.apache.org/licenses/LICENSE-2.0.txt)`
+  } else if (licenseType === 'ISC') {
+    licenseLink = `[License: ISC](https://www.mozilla.org/en-US/MPL/2.0/)`
+  } else {
+    license.license = ''
+  }
+  return licenseLink;
+};
 
-}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
+  console.log(license);
+  if(license != "None"){
 
-}
+    return `## License 
+${license}\n
+${renderLicenseBadge(license)}\n
+${renderLicenseLink(license)}`
+  }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+  return ""
+};
 
-`;
-}
 
-module.exports = generateMarkdown;
+module.exports = renderLicenseSection;

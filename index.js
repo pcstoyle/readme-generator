@@ -1,9 +1,8 @@
 // TODO: Include packages needed for this application ✅
 // const fs = require('fs');
 const inquirer = require('inquirer');
-const markdown = require('./Develop/utils/generateMarkdown')
+const renderLicenseSection = require('./Develop/utils/generateMarkdown')
 //require the generate markdown folder to write rules to get the license ✅
-
 const { writeFile } = require('fs').promises;
 
 // TODO: Create an array of questions for user input
@@ -30,9 +29,9 @@ const questions = () => {
             message: 'Please describe your projects usage.',
         }, 
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
-            choices: ["MIT", "Apache", "ISC"],
+            choices: ["MIT", "Apache", "ISC", "None",],
             message: 'Please select your license.',
         }, 
         {
@@ -77,9 +76,7 @@ ${usage}
 
 ${contributers}
 
-## License
-
-${license}
+${renderLicenseSection(license)}
 
 ## Tests
 

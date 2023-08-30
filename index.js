@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application ✅
 // const fs = require('fs');
 const inquirer = require('inquirer');
-const renderLicenseSection = require('./Develop/utils/generateMarkdown')
+const renderLicenseSection = require('./generateMarkdown')
 //require the generate markdown folder to write rules to get the license ✅
 const { writeFile } = require('fs').promises;
 
